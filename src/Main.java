@@ -1,15 +1,14 @@
 public class Main {
-/*
-* TODO
-*   -Inicializar dados do cliente
-*   -Menu de opções
-*   -Visualizar saldo
-*   -Enviar Valor
-*       -Max. valor da conta
-*   -Receber Valor
-*       -Somente valor positivo
-*
-* */
+/**
+ * TODO
+// * -Inicializar dados do cliente
+ * -Menu de opções
+ * -Visualizar saldo
+ * -Enviar Valor
+ * -Max. valor da conta
+ * -Receber Valor
+ * -Somente valor positivo
+ */
     public static void main(String[] args) {
         System.out.println("""
                 ********************************
@@ -21,6 +20,17 @@ public class Main {
                 ********************************
                 """);
 
-
+        System.out.println("""
+                
+                
+                Operações
+                
+                1- Consultar saldos
+                2- Receber valor
+                3- Transferir valor
+                4- Sair
+                
+                Digite a opção desejada:                
+                """);
     }
 }
