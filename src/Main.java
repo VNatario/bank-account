@@ -1,26 +1,24 @@
+import java.util.Scanner;
+
 public class Main {
-/**
- * TODO
-// * -Inicializar dados do cliente
- * -Menu de opções
- * -Visualizar saldo
- * -Enviar Valor
- * -Max. valor da conta
- * -Receber Valor
- * -Somente valor positivo
- */
+
     public static void main(String[] args) {
-        System.out.println("""
+        Scanner scanner = new Scanner(System.in);
+        int menu = 0;
+        double accountBalance = 3000.00;
+
+        System.out.printf("""
                 ********************************
                 Dados iniciais do cliente:
                 
                 Nome:             Vitor Natario
                 Tipo conta:       Corrente
-                Saldo inicial:    R$ 3000,00
+                Saldo inicial:    R$ %.2f
                 ********************************
-                """);
+                """, accountBalance);
 
-        System.out.println("""
+        while (menu != 4){
+            System.out.print("""
                 
                 
                 Operações
@@ -30,7 +28,48 @@ public class Main {
                 3- Transferir valor
                 4- Sair
                 
-                Digite a opção desejada:                
-                """);
+                Digite a opção desejada:\s""");
+
+            menu = scanner.nextInt();
+
+            switch (menu){
+                case 1:
+                    System.out.printf("Saldo na conta R$ %.2f%n", accountBalance);
+                    break;
+
+                case 2:
+                    System.out.print("Digite o valor a receber ==> R$ ");
+                    double amountReceive = scanner.nextDouble();
+
+                    if(amountReceive <= 0){
+                        System.out.println("Valor inválido, insira um valor positivo");
+                    } else {
+                        accountBalance += amountReceive;
+                        System.out.printf("Saldo atualizado R$ %.2f", accountBalance);
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Digite o valor a transferir ==> R$ ");
+                    double valueToTransfer = scanner.nextDouble();
+
+                    if(valueToTransfer <= 0 || valueToTransfer > accountBalance){
+                        System.out.println("Valor inválido para transferência");
+                    } else {
+                        accountBalance -= valueToTransfer;
+                        System.out.printf("Novo saldo R$ %.2f", accountBalance);
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Fechando aplicação...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida");
+
+
+            }
+        }
     }
 }
